@@ -1,0 +1,72 @@
+[
+  {
+    "COMPE": "033",
+    "ISPB": "90400888",
+    "Document": "90.400.888/0001-42",
+    "LongName": "BANCO SANTANDER (BRASIL) S.A.",
+    "ShortName": "BCO SANTANDER (BRASIL) S.A.",
+    "Url": "https://www.santander.com.br",
+    "Carteiras": ["101", "201"],
+    "CarteirasNomes": [
+      {"101": {"Nome": "Cobrança Simples ECR", "Carteira": "5"}},
+      {"102": {"Nome": "Cobrança Simples CSR", "Carteira": "102"}},
+      {"201": {"Nome": "Penhor", "Carteira": "1"}}
+  ],
+    "EspeciesCodigo240": [
+      {"DM": "02"},
+      {"DS": "04"},
+      {"LC": "07"},
+      {"NP": "12"},
+      {"NR": "13"},
+      {"RC": "17"},
+      {"AP": "20"},
+      {"BCC": "31"},
+      {"BDP": "32"},
+      {"CH": "97"},
+      {"ND": "98"}
+    ],
+    "EspeciesCodigo400": [
+      {"DM"  : "01"},
+      {"NP"  : "02"},
+      {"AP"  : "03"},
+      {"RC"  : "05"},
+      {"DP"  : "06"},
+      {"LC"  : "07"},
+      {"BDP" : "08"},
+      {"BCC" : "19"}
+    ]
+  },
+  {
+    "COMPE": "748",
+    "ISPB": "01181521",
+    "Document": "01.181.521/0001-55",
+    "LongName": "BANCO COOPERATIVO SICREDI S.A.",
+    "ShortName": "BCO COOPERATIVO SICREDI S.A.",
+    "Network": "RSFN",
+    "Type": "Banco Múltiplo Cooperativo",
+    "PixType": "DRCT",
+    "Charge": true,
+    "CreditDocument": true,
+    "LegalCheque": true,
+    "DetectaFlow": false,
+    "PCR": true,
+    "PCRP": true,
+    "SalaryPortability": "Banco folha e Destinatário",
+    "Products": [
+      "Capital de Giro",
+      "Cheque Especial",
+      "Consignado",
+      "Imobiário",
+      "Outros Créditos",
+      "Pessoal",
+      "PRONAMPE",
+      "Troca de Modalidade",
+      "Veículos"
+    ],
+    "Url": "https://www.sicredi.com.br",
+    "DateOperationStarted": "2002-04-22",
+    "DatePixStarted": "2020-11-03 06:30:00",
+    "DateRegistered": "2021-05-05T09:11:12.7114428-03:00",
+    "DateUpdated": "2024-05-15T16:49:45.7255799+00:00"
+  }
+]
