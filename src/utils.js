@@ -61,16 +61,15 @@ function dateToFatorVencimento(date) {
   return leftPad(String(days), 4, '0');
 }
 
-module.exports = {
-  onlyNumbers,
-  leftPad,
-  modulo10,
-  modulo11,
-  amountToBoleto,
-  dateToFatorVencimento,
-  getBankInfo,
-  getBankLogoPath,
-};
+function getCodigoBancoComDv(codigoBanco) {
+  // COD_BANCO_CEF = '104', COD_BANCO_AILOS = '085'
+  const semX = ['104', '085'];
+  const x10 = semX.includes(codigoBanco) ? 0 : 'X';
+
+ const dv = modulo11(codigoBanco, { base: 9, remainderMode: 'banco', x10 });
+
+  return `${codigoBanco}-${dv}`;
+}
 
 function getBankInfo(bankCode) {
   const code = String(bankCode || '').padStart(3, '0');
@@ -80,11 +79,17 @@ function getBankInfo(bankCode) {
 }
 
 function getBankLogoPath(bankCode) {
-  const info = getBankInfo(bankCode);
-  // Logo filenames now follow COMPE code (e.g., 341.svg)
-  const file = (info && info.code ? `${info.code}.svg` : info.logo) || 'default.svg';
-  return path.join(__dirname, '..', 'assets', 'banks', file);
+  return path.join(__dirname, 'assets', 'banks', `${leftPad(bankCode, 3, '0')}.png`);
 }
 
-
-
+module.exports = {
+  onlyNumbers,
+  leftPad,
+  modulo10,
+  modulo11,
+  amountToBoleto,
+  dateToFatorVencimento,
+  getBankInfo,
+  getBankLogoPath,
+  getCodigoBancoComDv
+};

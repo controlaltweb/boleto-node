@@ -10,6 +10,9 @@ async function run() {
       amount: 495000, // R$ 150,00 (em centavos)
       ourNumber: '20148', // Nosso número (será formatado para 10 dígitos + DV)
       documentNumber: 'NF-001234',
+      especieDocumento: 'DM',
+      aceite: 'N',
+      processDate: new Date('2025-10-10'),
       
       // Dados específicos do Santander
       agency: '742', // 4 dígitos
@@ -24,14 +27,17 @@ async function run() {
         document: '46.665.188/0001-98',
         bankBranch: '0742',
         bankAccount: '73494',
-        address: 'Av. Nove de Julho, 606 - Ribeirão Preto/SP',
+        address: 'Av. Nove de Julho, 606',
+        addressComplement: '14025-000 - Ribeirão Preto/SP',
+        logoPath: '/Users/valerioguimaraes/Development/web/simac-4.0-api/assets/logo-clube.png',
       },
       
       // Dados do pagador
       payer: {
         name: 'João da Silva',
         document: '11.043.798/0001-75',
-        address: 'Rua do Cliente, 456 - Rio de Janeiro/RJ',
+        address: 'Rua do Cliente, 456',
+        addressComplement: 'CEP: 20000-000 - Rio de Janeiro/RJ',
       },
       
       // Informações adicionais

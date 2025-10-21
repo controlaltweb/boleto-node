@@ -14,9 +14,12 @@ class AbstractBoleto {
     this.bankCode = data.bankCode;
     this.currencyCode = data.currencyCode || '9';
     this.dueDate = data.dueDate;
+    this.processDate = data.processDate || new Date();
     this.amount = data.amount; // em centavos
     this.ourNumber = data.ourNumber;
     this.documentNumber = data.documentNumber;
+    this.especieDocumento = data.especieDocumento || 'DM';
+    this.aceite = data.aceite || 'N';
     
     // Dados do beneficiário
     this.beneficiary = data.beneficiary || {};
@@ -129,12 +132,17 @@ class AbstractBoleto {
       dueDate: this.dueDate,
       amount: this.amount,
       freeField: this.getFreeField(),
+      barcode: this.getBarcode(),
+      digitableLine: this.getDigitableLine(),
       payer: this.payer,
       beneficiary: this.beneficiary,
       ourNumber: this.getOurNumber(),
       documentNumber: this.documentNumber,
       placeOfPayment: this.placeOfPayment,
       instructions: this.instructions,
+      especieDocumento: this.especieDocumento,
+      aceite: this.aceite,
+      processDate: this.processDate,
     };
 
     return generateBoletoPDF(boletoData, options);
