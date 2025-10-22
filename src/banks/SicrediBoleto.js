@@ -16,7 +16,7 @@ class SicrediBoleto extends AbstractBoleto {
     this.byte = data.byte || '2'; // Byte de identificação (1 dígito, padrão '2' para cobrança com registro)
     this.clientCode = data.clientCode; // Código do cliente (5 dígitos)
     this.withRegistry = data.withRegistry ?? 1; // 1 == with registry, 0 == without registry
-    this.ourNumber = data.ourNumber ? data.ourNumber.slice(-5) : '';
+    this.ourNumber = data.ourNumber ? leftPad(data.ourNumber.slice(-5), 5, '0') : '';
   }
 
   /**

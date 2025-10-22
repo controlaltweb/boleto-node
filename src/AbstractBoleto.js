@@ -13,8 +13,8 @@ class AbstractBoleto {
     // Dados básicos do boleto
     this.bankCode = data.bankCode;
     this.currencyCode = data.currencyCode || '9';
-    this.dueDate = data.dueDate;
-    this.processDate = data.processDate || new Date();
+    this.dueDate = moment(data.dueDate).toDate();
+    this.processDate = moment(data.processDate).toDate() || new Date();
     this.amount = data.amount; // em centavos
     this.ourNumber = data.ourNumber;
     this.documentNumber = data.documentNumber;
