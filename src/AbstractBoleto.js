@@ -1,6 +1,7 @@
 const { buildBarcode, buildDigitableLine } = require('./barcode');
 const { generateBoletoPDF } = require('./pdf');
 const { getBankInfo, leftPad, onlyNumbers, dateToFatorVencimento, amountToBoleto } = require('./utils');
+const moment = require('moment');
 
 /**
  * Classe base abstrata para geração de boletos bancários
