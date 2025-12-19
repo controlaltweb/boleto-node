@@ -84,7 +84,7 @@ Monta a linha digitável (47 dígitos formatados) a partir do código de barras 
 
 ### utils
 - `modulo10(number)`
-- `modulo11(number, { base = 9, remainderMode = 'banco' })`
+- `modulo11(number)`
 - `dateToFatorVencimento(date)`
 - `amountToBoleto(centAmount)`
 

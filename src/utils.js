@@ -26,23 +26,29 @@ function modulo10(number) {
 }
 
 // modulo11 for boleto: factors 2..9 cycling; returns DV with special cases
-function modulo11(number, options) {
-  const { base = 9, remainderMode = 'banco' } = options || {};
-  const digits = onlyNumbers(number).split('').reverse();
-  let weight = 2;
+function modulo11(number, factor = 2, base = 9, x10 = 0, resto10 = 0) {
+  let n = onlyNumbers(number);
   let sum = 0;
-  for (const d of digits) {
-    sum += Number(d) * weight;
-    weight = weight >= base ? 2 : weight + 1;
+
+  for (let i = n.length; i > 0; i--) {
+    sum += parseInt(n[i - 1], 10) * factor;
+    if (factor === base) {
+      factor = 1;
+    }
+    factor++;
   }
-  const remainder = sum % 11;
-  if (remainderMode === 'banco') {
-    const dv = 11 - remainder;
-    if (dv === 0 || dv === 10 || dv === 11) return 0; // banking convention
-    return dv;
+
+  if (x10 === 0) {
+    sum *= 10;
+    let digito = sum % 11;
+    if (digito === 10) {
+      digito = resto10;
+    }
+    return digito;
   }
-  // generic remainder result
-  return remainder;
+
+  return sum % 11;
+
 }
 
 function amountToBoleto(centAmount) {
@@ -66,7 +72,7 @@ function getCodigoBancoComDv(codigoBanco) {
   const semX = ['104', '085'];
   const x10 = semX.includes(codigoBanco) ? 0 : 'X';
 
- const dv = modulo11(codigoBanco, { base: 9, remainderMode: 'banco', x10 });
+  const dv = modulo11(codigoBanco, 2, 9, 0);
 
   return `${codigoBanco}-${dv}`;
 }

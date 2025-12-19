@@ -9,7 +9,8 @@ function buildBarcode({ bankCode, currencyCode = '9', dueFactor, amount, freeFie
   const valor = leftPad(onlyNumbers(amount), 10, '0');
   const livre = onlyNumbers(freeField).slice(0, 25).padEnd(25, '0');
   const withoutDV = bank + currency + fator + valor + livre;
-  const dv = String(modulo11(withoutDV, { base: 9, remainderMode: 'banco' }));
+  let dv = String(modulo11(withoutDV, 2, 9, 0));
+  dv = (['0', '10', '11'].includes(dv)) ? '1' : dv;
   return bank + currency + dv + fator + valor + livre;
 }
 

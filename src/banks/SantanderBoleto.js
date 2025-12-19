@@ -32,7 +32,7 @@ class SantanderBoleto extends AbstractBoleto {
     const nossoNumeroPadded = leftPad(nossoNumero, 12, '0');
     
     // Calcula o DV usando módulo 11
-    const dv = modulo11(nossoNumeroPadded, { base: 9, remainderMode: 'banco' });
+    const dv = modulo11(nossoNumeroPadded);
     
     return nossoNumeroPadded + dv;
   }
