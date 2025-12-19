@@ -1,6 +1,6 @@
 {
   "name": "node-boleto",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Gerador de boletos em Node.js",
   "main": "index.js",
   "scripts": {
